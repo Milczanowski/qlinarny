@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="eng">
+  <head>
+    <title>{% block title %}Qlinarny.pl {% endblock %}</title>
+    <meta name="google-site-verification" content="" />
+    <meta name="keywords" content="###KEYWORDS###"/>
+    <meta name="description" content="###DESCRIPTION###" />
+    <meta name="distribution" content="global" />
+    <meta name="rating" content="general" />
+    <meta name="robots" content="index,follow" />
+    <meta name="revisit-after" content="2 days" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+    <link rel="stylesheet" type="text/css" href="/media/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/media/css/main.css" />
+
+    <script language="javascript" type="text/javascript" src="/media/js/jquery.js"></script>
+    <script type="text/javascript">
+          //<!--
+          $(document).ready(function () {
+              //$('.menu_bottom ul li').prepend('- ');
+
+          })
+          //-->
+    </script>
+    {% block external %}{% endblock %}
+  </head>
+  <body>
+    {% block header %}
+      <!-- top -->
+		<div class="top">
+			<div class="header">
+				<div class="lisc_g float_l"></div>
+				<a href="." title="" class="logo float_l">Strona główna</a>
+				
+				<div class="pomidor"></div><!-- absolute -->
+				{% if not user.is_authenticated %}
+				<div class="logowanie float_l">
+					<form action="." method="post" class="form_logowanie">{% csrf_token %} 
+						<div class="login_inputy float_l">
+							<label>Login<input name="username" value="" type="text" class="float_r"/></label>
+							<br class="clear" />
+							<label>Hasło<input name="password" value="" type="password" class="float_r"/></label>
+							<br class="clear" />
+						</div>
+						<div class="float_l">
+							<input name="" value="zaloguj" type="submit"/>
+							<a href="/accounts/zarejestruj" title="">zarejestruj</a>
+						</div>
+						<br class="clear" />
+					</form>
+					<div class="logowanie_cien"></div>
+				</div>
+                {% endif %}
+				
+				<div class="ksiazka float_r">
+					<a href="" title="">Twoja książka kucharska</a>
+					<a href="/profile" title="" class="notatnik">Twój Profil</a>
+                    {% if user.is_authenticated %}
+                    <a href="/accounts/wyloguj" title="" class="notatnik">Wyloguj</a>
+                    {% endif %}
+				</div>
+
+				
+				<br class="clear"/>
+			</div>
+			
+			<div class="menu">
+				<div class="menu_img_l float_l"></div>
+				<ul class="menu_top float_l">
+					<li class="first_e"><a href="." title=""></a></li>
+					<li><a href="" title="">Przepisy</a></li>
+					<li><a href="" title="">Przepisy</a></li>
+					<li><a href="" title="">Przepisy</a></li>
+					<li><a href="" title="">Przepisy</a></li>
+					<li class="last_e"><a href="" title="">Przepisy</a></li>
+					<br class="clear" />
+				</ul>
+				<div class="menu_img_r float_l"></div>
+				<br class="clear" />
+			</div>
+			
+			<div class="banner site">
+				<div class="zestaw_dzis_box float_l">
+					<div class="zestaw_head">
+						<div class="zestaw_head_l float_l"></div>
+						<h2 class="zestaw_head_c float_l">Zestaw na dziś</h2>
+						<div class="zestaw_head_r float_l"></div>
+						<br class="clear" />
+					</div>
+					<ul class="zestawy_dzis">
+						<li>
+							<div class="zestaw_cont">
+								<a href="" title="" >
+									Śniadanie
+									<img src="/media/images/danie_1.jpg" alt=""/>
+								</a>
+							</div>
+							<div class="zestaw_cien"></div>
+						</li>
+						<li>
+							<div class="zestaw_cont">
+								<a href="" title="" >
+									Drugie śniadanie
+									<img src="/media/images/danie_2.jpg" alt=""/>
+								</a>
+							</div>
+							<div class="zestaw_cien"></div>
+						</li>
+						<li>
+							<div class="zestaw_cont">
+								<a href="" title="" >
+									Obiad
+									<img src="/media/images/danie_3.jpg" alt=""/>
+								</a>
+							</div>
+							<div class="zestaw_cien"></div>
+						</li>
+						<li>
+							<div class="zestaw_cont">
+								<a href="" title="" >
+									Podwieczorek
+									<img src="/media/images/danie_2.jpg" alt=""/>
+								</a>
+							</div>
+							<div class="zestaw_cien"></div>
+						</li>
+						<li>
+							<div class="zestaw_cont">
+								<a href="" title="" >
+									Kolacja
+									<img src="/media/images/danie_1.jpg" alt=""/>
+								</a>
+							</div>
+							<div class="zestaw_cien"></div>
+						</li>
+						<br class="clear" />
+					</ul>
+				</div><!-- end zestaw_dzis -->
+				<div class="dodaj_przepis_box float_l">
+					<a href="/przepis/dodaj" title="" class="dodaj_przepis_bt">Dodaj swój przpis za darmo</a>
+					<p>Lorem ipsum dolor sit amet delrodo consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+				</div>
+				<br class="clear" />
+				
+			</div>
+		</div><!-- end top -->     
+     {% endblock %}
+
+     <div class="container site">
+		<div class="col_container float_l">            
+            {% block left %} 
+            {% endblock %}  
+            {% block right %} 
+            {% endblock %} 
+        <br class="clear" />
+		</div><!-- end col_container -->
+            {% block sidebar %} 
+                 <div class="sidebar float_l">
+			
+			        <form class="szukaj_box" action="" method="">
+				        <input name="" value="" type="text" />
+				        <input name="" value="" type="submit" />
+			        </form>
+			
+			        <div class="konkurs_box">
+				        <div class="konk_bt">
+					        <div class="konk_bt_l float_l"></div>
+					        <a href="" title="" >Konkursy</a>
+					        <div class="konk_bt_r float_r"></div>
+					        <br class="clear"/>
+				        </div>
+				        <h3>Rozdajemy nagrody !</h3>
+				        <p>Lorem ipsum dolor sit amet delrodo consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+			        </div>
+			
+			        <form class="newsletter_box" action="" method="">
+				        <h2><img src="/media/images/newsletter.jpg" alt=""/>Newsletter</h2>
+				        <input name="" value="" type="text" />
+				        <input name="" value="Zamów" type="submit" />
+				        <br class="clear"/>
+				        <p>Jeśli chcesz być na bieżąco daj nam o tym znać!</p>
+			        </form>
+			
+			
+			        <a href="" title="" class="dolacz_sidebar"></a>
+		
+		        </div><!-- end sidebar -->
+            {% endblock %} 
+        <br class="clear" />
+	 </div><!-- end container -->
+  {% block footer %}	
+	<div class="footer">
+		<div class="footer_site">
+			<div class="foo_white_l float_l"></div>
+			<div class="foo_container float_l">
+				<div class="foo_emmar float_l">
+					<a href="" title="">Projekt i realizacja EMMAR</a>
+				</div>
+				<ul class="menu_top float_r">
+					<li class="first_e"><a href="" title="">Przepisy</a></li>
+					<li><a href="" title="">Przepisy</a></li>
+					<li><a href="" title="">Przepisy</a></li>
+					<li><a href="" title="">Przepisy</a></li>
+					<li><a href="" title="">Przepisy</a></li>
+					<li class="last_e"><a href="" title="">Przepisy</a></li>
+					<br class="clear" />
+				</ul>
+				<br class="clear" />
+			</div>
+			<div class="foo_white_img float_l">
+			</div>
+			<div class="foo_white_r float_l"></div>
+			<br class="clear" />
+		</div>
+	</div><!-- end footer -->
+{% endblock %}
+  </body>
+</html>

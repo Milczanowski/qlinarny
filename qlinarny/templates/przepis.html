@@ -1,0 +1,16 @@
+﻿{% extends "base.html"%}
+{% block title %}Qlinarny.pl - rejestracja{% endblock %}  
+<body>
+    {% block left %} 
+    <div style="margin-left:35%;margin-right:35%;">
+        <fieldset>
+        <legend>  </legend>
+            <form method="post" action=".">{% csrf_token %}
+            {{ form.as_p }}
+        <input type="submit" value="Dodaj">    <input type="reset" value="Wartości początkowe">
+         </form>
+    </fieldset>
+    </div>    
+     {% endblock %}          
+</body>
+

@@ -1,0 +1,21 @@
+﻿{% extends "base.html"%}
+{% block title %}Qlinarny.pl - rejestracja{% endblock %}  
+<body>
+    {% block left %} 
+   {{message}}     
+    <br />
+    <form action="/accounts/zarejestruj/" method="post" class="form_logowanie">{% csrf_token %} 
+        Login <input type="text" name="username" />
+    <br />
+        Hasło <input type="password" name="password" />
+    <br />
+        Powtórz hasło  <input type="password" name="password2" /> 
+    <br />
+        E-mail <input type="text" name="email" />
+    <br />
+    <input name="" value="zarejestruj" type="submit"/>
+    </form>  
+     
+     {% endblock %}          
+</body>
+
